@@ -9,13 +9,21 @@ public class TileGrid : MonoBehaviour
     public float tileSize = 2.1f;
     public Vector3 startPos;
     public GameObject tilePrefab;
+    private List<Tile> tiles = new();
     void Awake() {
-        GameObject tile;
+        
+    }
+
+    public void Generate() {
+        GameObject tileObj;
+        Tile tile;
         for (int x = 0; x < width; x++) {
             for (int z = 0; z < length; z++) {
-                tile = Instantiate(tilePrefab, transform);
-                tile.transform.position = new Vector3(x * tileSize, 0f, z * tileSize) + startPos;
-                tile.GetComponent<Tile>().Pos = new Vector2Int(x, z);
+                tileObj = Instantiate(tilePrefab, transform);
+                tileObj.transform.position = new Vector3(x * tileSize, 0f, z * tileSize) + startPos;
+                tile = tileObj.GetComponent<Tile>();
+                tile.Pos = new Vector2Int(x, z);
+                tiles.Add(tile);
             }
         }
     }
