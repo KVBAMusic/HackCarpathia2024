@@ -48,8 +48,14 @@ public class Tile : MonoBehaviour
     public void Advance() {
         building?.Advance();
         if (tileType == TileType.Barren) {
-            if (TileGrid.GetNeighboursByBuilding<Forest>(this).Length >= 2) {
+            int forestTiles = TileGrid.GetNeighboursByBuilding<Forest>(this).Length;
+            if (forestTiles >= 2) {
                 tileType = TileType.Ground;
+            }
+            else if (forestTiles == 1) { 
+                if (Random.Range(0, 4) == 0) {
+                    tileType = TileType.Ground;
+                }
             }
         }
     }
