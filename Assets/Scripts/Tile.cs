@@ -15,6 +15,7 @@ public class Tile : MonoBehaviour
             }
         }
     }
+
     public bool Free => building is null;
     public bool selected = false;
     private Material mat;
@@ -32,8 +33,14 @@ public class Tile : MonoBehaviour
         _ => Color.black,
     };
 
+    public new AnimationCurve animation;
+    private Vector3 targetScale;
+    private float animTime = 0;
+    public float animSpeed = 2;
+
     void Start() {
         mat = GetComponent<MeshRenderer>().material;
+        targetScale = transform.localScale;
     }
 
     void Update() {
@@ -43,6 +50,8 @@ public class Tile : MonoBehaviour
         else {
             mat.color = currentColor;
         }
+        animTime += Time.deltaTime;
+        transform.localScale = Vector3.LerpUnclamped(Vector3.zero, targetScale, animation.Evaluate(animTime * animSpeed));
     }
 
     public void Advance() {
@@ -58,5 +67,9 @@ public class Tile : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Animate() {
+        animTime = 0;
     }
 }

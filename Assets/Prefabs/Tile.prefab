@@ -119,3 +119,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pos: {x: 6, y: 9}
+  selected: 0
+  tileType: 1
+  animation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 9.131672
+      outSlope: 9.131672
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.09923018
+      value: 0.90613747
+      inSlope: 5.8424006
+      outSlope: 5.8424006
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.16004673
+      value: 1.06141
+      inSlope: 0.5997468
+      outSlope: 0.5997468
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.23963134
+    - serializedVersion: 3
+      time: 0.41939253
+      value: 0.91221786
+      inSlope: 0.060671188
+      outSlope: 0.060671188
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6324954
+      value: 1.0382321
+      inSlope: 0.032411523
+      outSlope: 0.032411523
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.14172347
+    - serializedVersion: 3
+      time: 0.82898474
+      value: 0.98483574
+      inSlope: -0.012995101
+      outSlope: -0.012995101
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.34421328
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.088671945
+      outSlope: 0.088671945
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  animSpeed: 1.5

@@ -30,13 +30,13 @@ public class BuildingSpawner : MonoBehaviour
             return;
         }
 
-
         GameObject buildingObj = Instantiate(prefab, cursor.targetTile.transform);
         buildingObj.transform.localPosition = new(0, 0.5f, 0);
 
         ITileBuilding building = buildingObj.GetComponent<ITileBuilding>();
 
         cursor.targetTile.building = building;
+        cursor.targetTile.Animate();
     }
 
     public void TryDestroy() {

@@ -1,10 +1,10 @@
 public class GameState {
-    public int Energy;
-    public int AirPollution;
-    public int GroundPollution;
-    public int WaterPollution;
-    public int Money;
-    public int FarmMultiplier;
+    public int Energy = 10;
+    public int AirPollution = 0;
+    public int GroundPollution = 0;
+    public int WaterPollution = 0;
+    public int Money = 50;
+    public int FarmMultiplier = 1;
     private GameState() {}
 
     private static GameState _state;

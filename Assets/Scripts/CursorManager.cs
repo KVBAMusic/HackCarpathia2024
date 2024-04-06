@@ -22,6 +22,7 @@ public class CursorManager : MonoBehaviour
                     }
                     targetTile = tile;
                     targetTile.selected = true;
+                    targetTile.Animate();
                     return;
                 }
                 if (hitInfo.collider.gameObject.TryGetComponent<ITileBuilding>(out var building)) {
@@ -30,6 +31,7 @@ public class CursorManager : MonoBehaviour
                     }
                     targetTile = building.Parent;
                     targetTile.selected = true;
+                    targetTile.Animate();
                     return;
                 }
                 return;
