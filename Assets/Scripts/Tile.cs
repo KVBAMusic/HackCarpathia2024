@@ -5,7 +5,16 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public Vector2Int Pos;
-    public ITileBuilding building;
+    private ITileBuilding _building;
+    public ITileBuilding building {
+        get => _building;
+        set {
+            _building = value;
+            if (_building is not null) {
+                _building.Parent = this;
+            }
+        }
+    }
     public bool Free => building is null;
     public bool selected = false;
     private Material mat;

@@ -29,7 +29,7 @@ public class CursorManager : MonoBehaviour
                     targetTile = building.Parent;
                     targetBuilding = building;
                     targetTile.selected = true;
-                    Debug.Log(tile.Pos);
+                    Debug.Log(targetTile.Pos);
                     return;
                 }
                 return;
