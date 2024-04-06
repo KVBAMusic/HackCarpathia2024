@@ -21,6 +21,7 @@ public class BuildingSpawner : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X)) {
             TryDestroy();
+            
         }
     }
 

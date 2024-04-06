@@ -15,6 +15,9 @@ public class TileGrid : MonoBehaviour
     }
 
     public void Generate() {
+        for (int i = 0; i < transform.childCount; i++) {
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
         GameObject tileObj;
         Tile tile;
         for (int x = 0; x < width; x++) {
