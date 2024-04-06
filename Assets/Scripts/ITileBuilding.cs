@@ -1,4 +1,3 @@
-using System.Collections.Specialized;
 
 public interface ITileBuilding {
     public Tile Parent { get; set; }

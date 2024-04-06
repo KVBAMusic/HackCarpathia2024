@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TileGrid : MonoBehaviour
@@ -14,7 +14,7 @@ public class TileGrid : MonoBehaviour
     public float highGroundThreshold = .7f;
     public Vector3 startPos;
     public GameObject tilePrefab;
-    private List<Tile> tiles = new();
+    private static List<Tile> tiles = new();
     void Awake() {
         Generate();
         float value;
@@ -62,7 +62,19 @@ public class TileGrid : MonoBehaviour
     }
     #endif
 
-    // Update is called once per frame
-    void Update() {
+    public static Tile[] GetNeighboursByType(Tile origin, TileType type) {
+        return tiles.Where(t => Vector2Int.Distance(t.Pos, origin.Pos) == 1)
+                    .Where(t => t.tileType == type)
+                    .ToArray();
+    }
+
+    public static Tile[] GetNeighboursByBuilding<T>(Tile origin) where T : ITileBuilding{
+        return tiles.Where(t => Vector2Int.Distance(t.Pos, origin.Pos) == 1)
+                    .Where(t => t.building?.GetType() == typeof(T))
+                    .ToArray();
+    }
+
+    public static void AdvanceAll() {
+        tiles.ForEach(t => t.Advance());
     }
 }
