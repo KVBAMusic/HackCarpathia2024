@@ -9,7 +9,7 @@ public class TileGridEditor : Editor{
         DrawDefaultInspector();
 
         if (GUILayout.Button("Generate Grid")) {
-            target.Generate();
+            target.GenerateEditor();
         }
     }
 }

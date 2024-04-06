@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BuildingSpawner : MonoBehaviour
@@ -12,32 +13,36 @@ public class BuildingSpawner : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            TrySpawn(farmPrefab);
-        }
-        if (Input.GetKeyDown(KeyCode.W)) {
-            TrySpawn(coalPlantPrefab);
-        }
         if (Input.GetKeyDown(KeyCode.X)) {
             TryDestroy();
-            
+
         }
     }
 
-    void TrySpawn(GameObject prefab) {
+    public void TrySpawn(GameObject prefab) {
+        if (cursor.targetTile is null) {
+            return;
+        }
         if (!cursor.targetTile.Free) {
             return;
         }
+        if (!prefab.GetComponent<ITileBuilding>().PlacedOn.Contains(cursor.targetTile.tileType)) {
+            return;
+        }
+
 
         GameObject buildingObj = Instantiate(prefab, cursor.targetTile.transform);
         buildingObj.transform.localPosition = new(0, 0.5f, 0);
 
         ITileBuilding building = buildingObj.GetComponent<ITileBuilding>();
+
         cursor.targetTile.building = building;
     }
 
-    void TryDestroy() {
+    public void TryDestroy() {
+        if (cursor.targetTile is null) {
+            return;
+        }
         if (cursor.targetTile.Free) {
             return;
         }

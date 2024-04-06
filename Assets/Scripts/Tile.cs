@@ -19,7 +19,19 @@ public class Tile : MonoBehaviour
     public bool selected = false;
     private Material mat;
 
-    private Color colorBase = new(.55f, .77f, .36f);
+
+    private Color colorGround = new(.55f, .77f, .36f);
+    private Color colorBarren = new(.77f, .68f, .36f);
+    private Color colorWater = new(.35f, .77f, .77f);
+
+    public TileType tileType = TileType.Ground;
+    private Color currentColor => tileType switch
+    {
+        TileType.Water => colorWater,
+        TileType.Ground => colorGround,
+        TileType.Barren => colorBarren,
+        _ => Color.black,
+    };
     // Start is called before the first frame update
     void Start() {
         mat = GetComponent<MeshRenderer>().material;
@@ -28,10 +40,10 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (selected) {
-            mat.color = Color.Lerp(colorBase, Color.white, Mathf.Abs(Mathf.Sin(Time.time)));
+            mat.color = Color.Lerp(currentColor, Color.white, Mathf.Abs(Mathf.Sin(Time.time * 2)));
         }
         else {
-            mat.color = colorBase;
+            mat.color = currentColor;
         }
     }
 }
