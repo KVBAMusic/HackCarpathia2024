@@ -19,6 +19,8 @@ public class GameStateUI : MonoBehaviour {
     public TMP_Text waterText;
     public TMP_Text groundText;
     public TMP_Text sumText;
+    public TMP_Text moneyText;
+    public TMP_Text energyText;
 
     public Gradient gradient;
     public Gradient textGradient;
@@ -29,6 +31,8 @@ public class GameStateUI : MonoBehaviour {
         waterText.text = GameState.State.WaterPollution.ToString();
         groundText.text = GameState.State.GroundPollution.ToString();
         sumText.text = (GameState.State.AirPollution + GameState.State.WaterPollution + GameState.State.GroundPollution).ToString();
+        moneyText.text = GameState.State.Money.ToString();
+        energyText.text = GameState.State.Energy.ToString();
 
         sumText.color = textGradient.Evaluate((GameState.State.AirPollution + GameState.State.WaterPollution + GameState.State.GroundPollution) / 200f);
 

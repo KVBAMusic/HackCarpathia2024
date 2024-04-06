@@ -20,10 +20,8 @@ public class TileGrid : MonoBehaviour
         float value;
         float currentTime = DateTime.Now.Millisecond / 1000f + DateTime.Now.Second + DateTime.Now.Minute * 60;
         float scale = 3;
-        Debug.Log($"There are {tiles.Count} tiles");
         foreach (Tile tile in tiles) {
             value = Mathf.PerlinNoise(currentTime + tile.Pos.x * scale / width, currentTime + tile.Pos.y * scale / length);
-            Debug.Log($"Tile ${tile.Pos} - {value}"); 
             if (value < lowGroundThreshold) {
                 tile.tileType = TileType.Water;
             }
@@ -75,6 +73,15 @@ public class TileGrid : MonoBehaviour
     }
 
     public static void AdvanceAll() {
+        tiles.Where(t => t.building?.EnergyGeneration < 0)
+             .ToList()
+             .ForEach(t => {
+                 GameState.State.Energy += t.building.EnergyGeneration;
+             });
         tiles.ForEach(t => t.Advance());
     }
+
+    public static int GetPositiveEnergyGeneration() => tiles.Where(t => t.building?.EnergyGeneration > 0)
+                                                            .Select(t => t.building.EnergyGeneration)
+                                                            .Sum();
 }

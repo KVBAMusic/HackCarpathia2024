@@ -22,7 +22,6 @@ public class CursorManager : MonoBehaviour
                     }
                     targetTile = tile;
                     targetTile.selected = true;
-                    Debug.Log(tile.Pos);
                     return;
                 }
                 if (hitInfo.collider.gameObject.TryGetComponent<ITileBuilding>(out var building)) {
@@ -31,12 +30,10 @@ public class CursorManager : MonoBehaviour
                     }
                     targetTile = building.Parent;
                     targetTile.selected = true;
-                    Debug.Log(targetTile.Pos);
                     return;
                 }
                 return;
             }
-            Debug.Log("Not hit");
             if (targetTile is not null) {
                 targetTile.selected = false;
             }
