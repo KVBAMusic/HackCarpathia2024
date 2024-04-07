@@ -3,7 +3,7 @@ public class GameState {
     public int AirPollution = 0;
     public int GroundPollution = 0;
     public int WaterPollution = 0;
-    public int Money = 50;
+    public int Money = 10;
     public int FarmMultiplier = 1;
     private GameState() {}
 
@@ -16,7 +16,7 @@ public class GameState {
     }
 
     public void Reset() {
-        Money = 0;
+        Money = 10;
         FarmMultiplier = 1;
         Energy = 10;
         AirPollution = 0;
@@ -34,7 +34,7 @@ public class GameState {
 
         Energy = 10 + TileGrid.GetPositiveEnergyGeneration();
 
-        if (AirPollution > 100 || WaterPollution > 100 || GroundPollution > 100 || AirPollution + WaterPollution + GroundPollution > 200) {
+        if (AirPollution >= 100 || WaterPollution >= 100 || GroundPollution >= 100 || AirPollution + WaterPollution + GroundPollution >= 200) {
             GameOver("You polluted the environment.\nEnergy sector is responsible for over 60% of greenhouse gas emissions globally. Consider switching to sustainable sources of energy.");
             return;
         }
@@ -50,7 +50,7 @@ public class GameState {
     }
 
     public void GameOver(string message) {
-
+        GameOverUI.OnGameOver?.Invoke(message);
     }
 
 }

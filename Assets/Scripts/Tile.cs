@@ -9,11 +9,14 @@ public class Tile : MonoBehaviour
     public ITileBuilding building {
         get => _building;
         set {
-            _building = value;
-            if (_building is not null) {
+            if (value is not null) {
+                _building = value;
                 _building.Parent = this;
                 _building.OnBuild();
+                return;
             }
+            Destroy(_building as Component);
+            _building = value;
         }
     }
 
@@ -71,6 +74,7 @@ public class Tile : MonoBehaviour
     }
 
     public void Animate() {
+        Audio.TileClick();
         animTime = 0;
     }
 }

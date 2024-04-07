@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public TMP_Text title;
     public Button playBtn, settingsBtn, quitBtn;
 
-    void CrossFadeAlphaButton(Button button, float initAlpha, float alpha, float duration, bool ignoreTimeScale) {
+    public static void CrossFadeAlphaButton(Button button, float initAlpha, float alpha, float duration, bool ignoreTimeScale) {
         TMP_Text btnText = button.transform.GetChild(0).GetComponent<TMP_Text>();
         button.targetGraphic.CrossFadeAlpha(initAlpha, 0, true);
         btnText.CrossFadeAlpha(initAlpha, 0, true);

@@ -6,10 +6,11 @@ public class Farm : MonoBehaviour, ITileBuilding {
 
     public int EnergyGeneration => 0;
     public int EnergyUsage => 5;
+    public int Cost => 5;
 
     public void Advance() {
-        GameState.State.AirPollution += 5;
-        GameState.State.Money += 10 * GameState.State.FarmMultiplier;
+        GameState.State.AirPollution += 2;
+        GameState.State.Money += 5 * GameState.State.FarmMultiplier;
     }
     public void OnBuild() {}
 }

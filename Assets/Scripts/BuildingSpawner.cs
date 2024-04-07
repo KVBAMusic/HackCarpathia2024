@@ -21,12 +21,19 @@ public class BuildingSpawner : MonoBehaviour
 
     public void TrySpawn(GameObject prefab) {
         if (cursor.targetTile is null) {
+            Audio.BuildFailed();
             return;
         }
         if (!cursor.targetTile.Free) {
+            Audio.BuildFailed();
             return;
         }
         if (!prefab.GetComponent<ITileBuilding>().PlacedOn.Contains(cursor.targetTile.tileType)) {
+            Audio.BuildFailed();
+            return;
+        }
+        if (prefab.GetComponent<ITileBuilding>().Cost > GameState.State.Money) {
+            Audio.BuildFailed();
             return;
         }
 
@@ -34,6 +41,7 @@ public class BuildingSpawner : MonoBehaviour
         buildingObj.transform.localPosition = new(0, 0.5f, 0);
 
         ITileBuilding building = buildingObj.GetComponent<ITileBuilding>();
+        GameState.State.Money -= building.Cost;
 
         cursor.targetTile.building = building;
         cursor.targetTile.Animate();

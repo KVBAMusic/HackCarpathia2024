@@ -4,13 +4,13 @@ public class FertiliserPlant : MonoBehaviour, ITileBuilding {
     public Tile Parent { get; set; }
     public TileType[] PlacedOn => new TileType[] {TileType.Ground, TileType.Barren};
 
-    public int EnergyGeneration => -150;
+    public int EnergyGeneration => -50;
+    public int Cost => 50;
 
     public void Advance() {
-        GameState.State.AirPollution += 10;
-        GameState.State.WaterPollution += 25;
-        GameState.State.GroundPollution += 10;
-        GameState.State.Money += 100;
+        GameState.State.AirPollution += 5;
+        GameState.State.WaterPollution += 5;
+        GameState.State.GroundPollution += 5;
     }
 
     void OnDestroy() {

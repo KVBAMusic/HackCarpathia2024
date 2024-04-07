@@ -5,10 +5,11 @@ public class Meadow : MonoBehaviour, ITileBuilding {
     public TileType[] PlacedOn => new TileType[] {TileType.Ground};
 
     public int EnergyGeneration => 0;
+    public int Cost => 20;
 
     private int life = 2;
     public void Advance() {
-        GameState.State.GroundPollution -= 15;
+        GameState.State.GroundPollution -= 10;
         if (--life <= 0) {
             Parent.building = null;
             Destroy(gameObject);

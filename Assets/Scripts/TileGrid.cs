@@ -81,7 +81,17 @@ public class TileGrid : MonoBehaviour
         tiles.ForEach(t => t.Advance());
     }
 
+    public static void ClearAll() {
+        foreach (Tile t in tiles) {
+            t.building = null;
+        }
+    }
+
     public static int GetPositiveEnergyGeneration() => tiles.Where(t => t.building?.EnergyGeneration > 0)
                                                             .Select(t => t.building.EnergyGeneration)
                                                             .Sum();
+
+    public static int GetEnergyConsumption() => tiles.Where(t => t.building?.EnergyGeneration < 0)
+                                                     .Select(t => -t.building.EnergyGeneration)
+                                                     .Sum();
 }

@@ -32,7 +32,7 @@ public class GameStateUI : MonoBehaviour {
         groundText.text = GameState.State.GroundPollution.ToString();
         sumText.text = (GameState.State.AirPollution + GameState.State.WaterPollution + GameState.State.GroundPollution).ToString();
         moneyText.text = GameState.State.Money.ToString();
-        energyText.text = GameState.State.Energy.ToString();
+        energyText.text = $"{GameState.State.Energy} (-{TileGrid.GetEnergyConsumption()})";
 
         sumText.color = textGradient.Evaluate((GameState.State.AirPollution + GameState.State.WaterPollution + GameState.State.GroundPollution) / 200f);
 
