@@ -18,5 +18,6 @@ public class FertiliserPlant : MonoBehaviour, ITileBuilding {
     }
     public void OnBuild() {
         GameState.State.FarmMultiplier += 1;
+        Parent.tileType = TileType.Barren;
     }
 }

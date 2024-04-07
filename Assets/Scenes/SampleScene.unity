@@ -855,7 +855,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.9575472, g: 0.9983672, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.9575472, g: 0.9983672, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -880,7 +880,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2091,7 +2091,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buttons.Array.data[1].prefab
       value: 
-      objectReference: {fileID: 919132149155446097, guid: 95cc11e7fbd46144da1f7fcc6234be4e,
+      objectReference: {fileID: 601222856658151271, guid: 813e95e0dd9c89e438ec8076cf28b688,
         type: 3}
     - target: {fileID: 1040296992224190116, guid: 4b6872f6a66e5ef45bf843498f81a60c,
         type: 3}
