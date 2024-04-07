@@ -9,7 +9,7 @@ public class Farm : MonoBehaviour, ITileBuilding {
 
     public void Advance() {
         GameState.State.AirPollution += 5;
-        GameState.State.WaterPollution += 5;
         GameState.State.Money += 10 * GameState.State.FarmMultiplier;
     }
+    public void OnBuild() {}
 }

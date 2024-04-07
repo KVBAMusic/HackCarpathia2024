@@ -8,4 +8,5 @@ public class WaterTurbine : MonoBehaviour, ITileBuilding {
 
     public void Advance() {
     }
+    public void OnBuild() {}
 }

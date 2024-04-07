@@ -14,4 +14,5 @@ public class Meadow : MonoBehaviour, ITileBuilding {
             Destroy(gameObject);
         }
     }
+    public void OnBuild() {}
 }

@@ -4,4 +4,5 @@ public interface ITileBuilding {
     public TileType[] PlacedOn { get; }
     public int EnergyGeneration { get; }
     public void Advance();
+    public void OnBuild();
 }

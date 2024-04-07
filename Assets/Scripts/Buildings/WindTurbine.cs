@@ -8,4 +8,5 @@ public class WindTurbine : MonoBehaviour, ITileBuilding {
 
     public void Advance() {
     }
+    public void OnBuild() {}
 }

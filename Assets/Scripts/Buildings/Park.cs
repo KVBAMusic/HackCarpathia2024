@@ -11,4 +11,5 @@ public class Park : MonoBehaviour, ITileBuilding {
         GameState.State.WaterPollution -= 10;
         GameState.State.GroundPollution -= 1;
     }
+    public void OnBuild() {}
 }

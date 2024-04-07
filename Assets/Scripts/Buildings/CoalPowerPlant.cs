@@ -8,4 +8,8 @@ public class CoalPowerPlant : MonoBehaviour, ITileBuilding {
     public void Advance() {
         GameState.State.AirPollution += 40;
     }
+
+    public void OnBuild() {
+        Parent.tileType = TileType.Barren;
+    }
 }

@@ -6,7 +6,7 @@ public class FissionReactor : MonoBehaviour, ITileBuilding {
 
     public int EnergyGeneration => 25000;
 
-    void OnEnable() {
+    public void OnBuild() {
         Parent.tileType = TileType.Barren;
     }
 

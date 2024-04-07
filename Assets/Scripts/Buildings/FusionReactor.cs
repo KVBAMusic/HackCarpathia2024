@@ -6,9 +6,7 @@ public class FusionReactor : MonoBehaviour, ITileBuilding {
 
     public int EnergyGeneration => 1000000;
 
-    void OnEnable() {
-        Parent.tileType = TileType.Barren;
-    }
+    public void OnBuild() { Parent.tileType = TileType.Barren; }
 
     public void Advance() {
     }

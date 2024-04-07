@@ -10,4 +10,5 @@ public class Market : MonoBehaviour, ITileBuilding {
         GameState.State.AirPollution += 1;
         GameState.State.Money += 250;
     }
+    public void OnBuild() {}
 }

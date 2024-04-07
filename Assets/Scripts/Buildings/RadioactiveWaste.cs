@@ -9,4 +9,5 @@ public class RadioactiveWaste : MonoBehaviour, ITileBuilding {
     public void Advance() {
         GameState.State.GroundPollution -= 25;
     }
+    public void OnBuild() {}
 }

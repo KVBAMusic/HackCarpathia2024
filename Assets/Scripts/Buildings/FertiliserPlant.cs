@@ -6,10 +6,6 @@ public class FertiliserPlant : MonoBehaviour, ITileBuilding {
 
     public int EnergyGeneration => -150;
 
-    void OnEnable() {
-        GameState.State.FarmMultiplier += 1;
-    }
-
     public void Advance() {
         GameState.State.AirPollution += 10;
         GameState.State.WaterPollution += 25;
@@ -19,5 +15,8 @@ public class FertiliserPlant : MonoBehaviour, ITileBuilding {
 
     void OnDestroy() {
         GameState.State.FarmMultiplier -= 1;
+    }
+    public void OnBuild() {
+        GameState.State.FarmMultiplier += 1;
     }
 }

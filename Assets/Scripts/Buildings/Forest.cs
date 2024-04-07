@@ -9,4 +9,6 @@ public class Forest : MonoBehaviour, ITileBuilding {
     public void Advance() {
         GameState.State.AirPollution -= 10;
     }
+
+    public void OnBuild() {}
 }

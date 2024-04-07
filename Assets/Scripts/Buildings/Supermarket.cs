@@ -11,4 +11,5 @@ public class Supermarket : MonoBehaviour, ITileBuilding {
         GameState.State.AirPollution += 10;
         GameState.State.GroundPollution += 15;
     }
+    public void OnBuild() {}
 }

@@ -12,6 +12,7 @@ public class Tile : MonoBehaviour
             _building = value;
             if (_building is not null) {
                 _building.Parent = this;
+                _building.OnBuild();
             }
         }
     }
